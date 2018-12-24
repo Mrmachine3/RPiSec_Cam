@@ -31,7 +31,7 @@ def setServoAngle(servo, angle):
     pwm.stop()
 
 if __name__ == '__main__':
-import sys
+    import sys
     if len(sys.argv) == 1:
         setServoAngle(pan, 90)
         setServoAngle(tilt, 90)
