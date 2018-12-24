@@ -1,7 +1,7 @@
-# Kerberos Surveillance Camera
+# Surveillance Camera
 
 ### Description
-This github repository contains project files related to building and deploying a Raspberyy Pi for use as a security camera with the ***Kerberos.io[1]*** operating system, which was developed as an open source video surveillance solution that works with any camera on every Linux based machine.
+This github repository contains project files related to building and deploying a Raspberyy Pi for use as a security camera with the Raspbian opewith the Raspbian. The Raspberry Pi will host a Flask webserver that will serve the live video frames and also help control the pan-tilt server mechanism to remotely control the angle of the camera.
 
 ### Table of Contents
 
