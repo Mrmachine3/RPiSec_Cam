@@ -1,16 +1,10 @@
 #!/usr/bin/env python
-
-###########################################################################
-# Script Name: camera_pi.py
-# Create Date: 12/24/2018 
-# Description: This script runs the PiCamera and captures frames and streams video feeds.
-# Author: Mr. Machine
-# Tags: Python3, hardware, PiCamera, IoT
-########################################################################### 
-# -*- coding: uft-8 -*-
+# -*- coding: utf-8 -*-
 #
-# Library imports
-
+#  camera_pi.py
+#  
+#  
+#  
 import time
 import io
 import threading
@@ -18,24 +12,24 @@ import picamera
 
 
 class Camera(object):
-    thread = None # background thread that reads frames from camera
-    frame = None # current frame is sotred here by background thread
-    last_access = 0 # time of last client acces to the camera
+    thread = None  # background thread that reads frames from camera
+    frame = None  # current frame is stored here by background thread
+    last_access = 0  # time of last client access to the camera
 
     def initialize(self):
-         if Camera.thread is None:
-             # start background frame thread
-             Camera.thread - threading.Thread(target=self._thread)
-             Camera.thread.start()
+        if Camera.thread is None:
+            # start background frame thread
+            Camera.thread = threading.Thread(target=self._thread)
+            Camera.thread.start()
 
-             # wait until frames start to be available
-             while self.frame is None:
-                 time.sleep(0)
+            # wait until frames start to be available
+            while self.frame is None:
+                time.sleep(0)
 
     def get_frame(self):
-         Camera.last_access = time.time()
-         self.initialize()
-         return self.frame
+        Camera.last_access = time.time()
+        self.initialize()
+        return self.frame
 
     @classmethod
     def _thread(cls):
