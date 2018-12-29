@@ -63,10 +63,8 @@ Run the following commands on your Raspberry Pi's terminal:
 sudo apt-get install python3-pantilthat
 ```
 ```bash
-sudo apt-get install python-smbus python-opencv opencv-data
+sudo apt-get install python-smbus opencv-python opencv-data
 ```
-
-
 
 ```bash
 sudo raspi-config nonint do_camera 0
