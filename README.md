@@ -48,6 +48,9 @@ I opted to exclude the optional Neopixel stick; however, if you want to use the 
 
 An option may be to add a ***[Night Vision Camera Module for Raspberry Pi][5]***.
 
+<p align="center"><a href="https://cdn-shop.adafruit.com/970x728/3353-04.jpg"><img alt="Complete Pan-tilt Camera" src="https://cdn-shop.adafruit.com/970x728/3353-04.jpg" height="50%" width="50%"></a></p>
+<p align="center"><strong>Complete Pan-tilt Camera</strong></p>
+
 ### ***MORE UPDATES COMING SOON***
 
 <!--
