@@ -25,4 +25,5 @@ pan_inc = [-90, -75, -60, -45, -30, -15, 0, 15, 30, 45, 60, 75, 90]
 for x in pan_inc:
     pt.pan(x)
     sleep(1.5)
+pt.pan(0)
 
