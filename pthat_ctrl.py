@@ -13,17 +13,20 @@
 import pantilthat as pt
 from time import sleep
 
-# Neutral horizontal servo postion
+# Neutral horizontal and vertical servo postions
 pt.pan(0)
-
-# Neutral vertical servo postion
 pt.tilt(90)
 
+pan_input = int(input("Enter desired angle between -90 and 90 on the horizontal axis: "))
+
 # This list defines the servo angle value increments
-pan_inc = [-90, -75, -60, -45, -30, -15, 0, 15, 30, 45, 60, 75, 90]
+pan_presets = [-90, -75, -60, -45, -30, -15, 0, 15, 30, 45, 60, 75, 90]
 
-for x in pan_inc:
-    pt.pan(x)
-    sleep(1.5)
-pt.pan(0)
-
+while pt.server_enable(1,True):
+    if pan_input in pan_presets:
+        for x in pan_presets:
+            pt.pan(x)
+            sleep(1.5)
+        pt.pan(0)
+        pt.idle_timeout(15)
+    
