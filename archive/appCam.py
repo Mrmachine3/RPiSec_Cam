@@ -22,12 +22,10 @@ panServoAngle = 0
 @app.route('/')
 def index():
     """Video streaming home page."""
-    return render_template('index.html')
-
     templateData = {
-      'panServoAngle'  : panServoAngle
-      'tiltServoAngle'  : tiltServoAngle
-        }
+      'panServoAngle'   : panServoAngle,
+      'tiltServoAngle'    : tiltServoAngle
+      }
     return render_template('index.html', **templateData)
 
 def gen(camera):
