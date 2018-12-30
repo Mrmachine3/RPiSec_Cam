@@ -13,12 +13,22 @@ from camera_pi import Camera
 
 app = Flask(__name__)
 
+# Global variable definition and initialization
+global panServoAngle
+#global tiltServoAngle
+panServoAngle = 0
+#tiltServoAngle = 90 
 
 @app.route('/')
 def index():
     """Video streaming home page."""
     return render_template('index.html')
 
+    templateData = {
+      'panServoAngle'  : panServoAngle
+      'tiltServoAngle'  : tiltServoAngle
+        }
+    return render_template('index.html', **templateData)
 
 def gen(camera):
     """Video streaming generator function."""
@@ -34,6 +44,28 @@ def video_feed():
     return Response(gen(Camera()),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
+@app.route("/<servo>/<angle>")
+def move(servo, angle):
+    global panServoAngle
+    global tiltServoAngle
+    if servo == 'pan':
+        if angle == '+':
+            panServoAngle = panServoAngle + 10
+        else:
+            panServoAngle = panServoAngle - 10
+        os.system("python3 angleServoCtrl.py " + str(panPin) + " " + str(panServoAngle))
+    if servo == 'tilt':
+        if angle == '+':
+            tiltServoAngle = tiltServoAngle + 10
+        else:
+            tiltServoAngle = tiltServoAngle - 10
+        os.system("python3 angleServoCtrl.py " + str(tiltPin) + " " + str(tiltServoAngle))
+       
+    templateData = {
+      'panServoAngle'	: panServoAngle,
+      'tiltServoAngle'	: tiltServoAngle
+    }
+    return render_template('index.html', **templateData)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port =80, debug=True, threaded=True)

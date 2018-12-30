@@ -2,11 +2,17 @@
   <head>
     <title>Mr. Machine Live Security Cam Stream</title>
     <link rel="stylesheet" href='../static/style.css'/>
+    <style>
+            body {
+                    text-align: center;
+                 }
+    </style>
   </head>
   <body>
     <h1>Mr. Machine Live Security Cam Stream</h1>
-    <h3><img src="{{ url_for('video_feed') }}" width="90%"></h3>
+    <h3><img src="{{ url_for('video_feed') }}" height="50%" width="50%"></h3>
     <hr>
+    <h4> Pan Angle: <a href="/pan/-"class="button">-</a> [ {{ panServoAngle }} ] <a href="/pan/+"class="button">+</a> </h4>
     <p> @2018 Developed by Mr. Machine</p>
   </body>
 </html>
