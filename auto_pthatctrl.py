@@ -14,6 +14,18 @@ import pantilthat as pt
 from time import sleep, time 
 from datetime import datetime
 
+'''
+# Enable code for end user control pattern 
+pan_in = abs(int(input("Enter desired angle between -90 and 90 on the horizontal axis: ")))
+#pan_in = abs(int(45))
+
+# Move servo to both viewpoints of input parameters
+pt.pan(pan_in * -1)
+sleep(ls)
+pt.pan(pan_in)
+sleep(ls)
+'''
+
 #Define sleep time
 s =.5     #short sleep interval
 ls =1.5   #long sleep interval
@@ -26,18 +38,9 @@ now = start_time.strftime("%H:%M:%S")
 pt.pan(0)
 pt.tilt(90)
 
-#pan_in = abs(int(input("Enter desired angle between -90 and 90 on the horizontal axis: ")))
-pan_in = abs(int(45))
-
 # This list defines the servo angle value increments
-pan_presets = [-90, -75, -60, -45, -30, -15, 0, 15, 30, 45, 60, 75, 90]
+pan_presets = [0, -15, -30, -45, -60, -75, -90, -75, -60, -45, -30, -15, 0, 15, 30, 45, 60, 75, 90, 75, 60, 45, 30, 15]
 
-# Move servo to both viewpoints of input parameters
-pt.pan(pan_in * -1)
-sleep(ls)
-pt.pan(pan_in)
-sleep(ls)
-    
 # Begin at farthest viewpoint position on right side and loop through servo angle parameters 
 for x in pan_presets:
     pt.pan(x)
@@ -45,12 +48,10 @@ for x in pan_presets:
 for x in pan_presets[::-1]:
     pt.pan(x)
     sleep(s)
-
-# Move servo to both viewpoints of input parameters
-pt.pan(pan_in * -1)
-sleep(ls)
-pt.pan(pan_in)
-sleep(ls)
+    
+# Neutral horizontal and vertical servo postions
+pt.pan(0)
+pt.tilt(90)
 
 # Define script end time
 end_time = datetime.utcnow()
