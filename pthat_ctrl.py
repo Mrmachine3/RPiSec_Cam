@@ -26,7 +26,8 @@ now = start_time.strftime("%H:%M:%S")
 pt.pan(0)
 pt.tilt(90)
 
-pan_in = abs(int(input("Enter desired angle between -90 and 90 on the horizontal axis: ")))
+#pan_in = abs(int(input("Enter desired angle between -90 and 90 on the horizontal axis: ")))
+pan_in = abs(int(45))
 
 # This list defines the servo angle value increments
 pan_presets = [-90, -75, -60, -45, -30, -15, 0, 15, 30, 45, 60, 75, 90]
