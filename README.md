@@ -2,7 +2,7 @@
 
 ### Description
 This github repository contains project files related to building, programming, and deploying a Raspberyy Pi (RPi) for use as a security camera. For additional details on hardware, software, and installation instructions, please view my github ***[project wiki][1]***.
----
+
 #### Hardware Requirements
 *[Raspberry Pi 3 B+][2]*
 *[5V 2.5A Switching Power Suppy w/ MicroUSB Cable][3]*
