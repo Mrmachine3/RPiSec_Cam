@@ -1,0 +1,1 @@
+#*/1 * * * * sudo python /home/pi/Desktop/RPiSec_Cam/auto_pthatctrl.py >> /home/pi/Desktop/RPiSec_Cam/pthatcron.log 2>&1
